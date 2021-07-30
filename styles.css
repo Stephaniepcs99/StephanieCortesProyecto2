@@ -76,3 +76,77 @@ background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(187,88,174,1) 1
     width: 50px;
      height: 50px;
 }
+.div-title{
+    width: 40%;
+    text-align: center;
+    font-family: 'Mate SC', serif;
+}
+.sec-title{
+    /*background-color: rgb(172, 170, 170);*/
+    background: rgb(130,130,130);
+background: linear-gradient(357deg, rgba(130,130,130,1) 0%, rgba(108,66,103,1) 100%);
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cont-crud{
+    display: flex; 
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-right: 10px; 
+    justify-content: space-between;
+}
+.cont-formulario{
+    display: flex;
+    width: 35%;
+}
+#formulario{
+    width: 100%;
+}
+.datos-cliente{
+    text-align: center;
+}
+.title-form{
+   /* background-color: rgb(214, 214, 214);*/
+   background: rgb(130,130,130);
+background: linear-gradient(357deg, rgba(130,130,130,1) 0%, rgba(238,224,237,1) 100%);
+    border-radius:3px;
+}
+.label{
+    padding-right: 10px;
+}
+.aco-1{
+    display: flex;
+    padding: 5px 0px;
+    align-items: center;
+}
+.aco-2{
+    display: flex;
+    padding: 5px 0px;
+    align-items: center;
+    justify-content: space-between;
+}
+#aco-3{
+    width: 55%;
+}
+#aco-4{
+    width: 45%;
+}
+#aco-5{
+    width: 45%;
+}
+.datos-producto{
+    text-align: center;
+    padding-top: 10px;
+}
+.aco-botton{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.button{
+    width: 70%;
+}
