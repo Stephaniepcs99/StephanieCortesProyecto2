@@ -105,3 +105,10 @@ function actualizar(formData){
     selecRow.cells[10].innerHTML = formData.descripcion;
 }
 
+function eliminar(td){
+    if(confirm("¿Estas seguro de querer eliminar el pedido?")){
+        row = td.parentElement.parentElement;
+        document.getElementsById("lista-pedidos").deleteRow(row.rowIndex);
+        resetForm();
+    }
+}
