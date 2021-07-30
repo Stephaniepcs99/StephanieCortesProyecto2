@@ -99,6 +99,24 @@ function localStoragePedidos(){
     ColocardatoEnTabla();
 }
 
+//para eliminar en el Storage
+const EliminarLocalStorage=(ped)=>{
+    //console.log(ped);
+    let indexArray;
+    //recorremos cada elemento del arreglo
+    listPedidos.forEach((elemento,index)=>{
+        //comparamos si el elemento que tenemos en el LocalStorage es igaul al que nosotros le realizamos la accion
+        if(elemento.nombre.nombre === ped){
+            indexArray = index;
+        }
+    });
+    //para poder eliminar el elemento que seleccionamos y el 1 es porque quqeremos elimnar solo 1 elemento
+    listPedidos.splice(indexArray,1);
+    //mandamos a llamar el siguiente metodo para guardar en el localStorage
+    localStoragePedidos();
+    
+}
+
 //metodo para poder insertar los datos en la tabla
 /*function insertNewRecord(data){
     let table = document.getElementById("lista-pedidos").getElementsByTagName('tbody')[0];
@@ -184,3 +202,24 @@ function eliminar(td){
 
 //este nos sirve para que cada que se refresque la pagina siempre se haga primero el metodo "ColocardatoEnTabla"
 document.addEventListener('DOMContentLoaded',ColocardatoEnTabla);
+
+//para poder eliminar en el STORAGE
+listapedidosUI.addEventListener('click', (e) =>{
+    e.preventDefault();
+    //me imprime el evento
+    //console.log(e);
+    //me imprime el icono que estoy clickeando ("edit" o "elim")
+    //console.log(e.target.innerHTML);
+    if(e.target.innerHTML === 'editar' || e.target.innerHTML === 'elim'){
+        //me imprimira el innerHTML que correscomde al td de "nombre" de mi columna seleccionada
+        let text =e.path[3].childNodes[1].innerHTML;
+        //accion de eliminar
+        if(e.target.innerHTML === 'elim'){
+            EliminarLocalStorage(text);
+        }
+        //accion de editar
+        if(e.target.innerHTML === 'editar'){
+        }
+
+    }
+});
