@@ -3,7 +3,7 @@ let listPedidos=[];
 const formUI = document.querySelector('#formulario');
 const listapedidosUI = document.querySelector('#listped');
 
-//let button = document.querySelector('.button').value;
+let button = document.querySelector('.button').value;
 
 //al dar click en el boton de guardar se realizara lo siguiente
 function onFormSubmit(){
@@ -117,6 +117,112 @@ const EliminarLocalStorage=(ped)=>{
     
 }
 
+
+
+const EditarLocalStorage=(ped)=>{
+    //esta es otra forma de buscar el index sin el forEach  que utilizamos en Eliminar y solo usando findIndex
+    let indexArray= listPedidos.findIndex((elemento)=>{
+        return elemento.nombre.nombre === ped //colocamos e return para que no nos vmarque el -1
+    });
+    //console.log(indexArray); //nos imprime los indices
+    console.log(listPedidos[indexArray]); // se imprime nuestro objeto
+    //si confirma al querer editar hara lo siguiente:
+    if(confirm("¿Estas seguro de querer editar la celda?")){
+        //updatePedido guardara el valor que el usuario coloque
+        let updatePedido=prompt("Que dato deseas cambiar? \n 1- Nombre / nombre \n2- Apellido / apellido \n3-Telefono / telefono \n4- Email / email \n5- Estado / estado \n6- Municipio / municipio \n7- Direccion / direccion \n8- Producto / producto \n9-Categoria / categoria \n10-Total / total \n11- Descripcion / descripcion","");
+        //si coloca nombre o 1
+        if(updatePedido == 'nombre' || updatePedido == 'Nombre' || updatePedido == '1'){
+            //DatoNuevo guardara el valor que coloque el usuario
+            let DatoNuevo=prompt("Cual es tu NOMBRE nuevo?","");
+            //NOTA: el arreglo contiene Objetos y obtendremos el indice del objeto al que hemos seleccionado
+            //al indice de ese areglo en el elemento de nombre se le colocara el dato que coloco el usuario
+            listPedidos[indexArray].nombre.nombre = DatoNuevo;
+        }
+        //si coloca apellido o 2
+        if(updatePedido == 'apellido' || updatePedido == 'Apellido' || updatePedido == '2'){
+            //DatoNuevo guardara el valor que coloque el usuario
+            let DatoNuevo=prompt("Cual es tu APELLIDO nuevo?","");
+            //NOTA: el arreglo contiene Objetos y obtendremos el indice del objeto al que hemos seleccionado
+            //al indice de ese areglo en el elemento de apellido se le colocara el dato que coloco el usuario
+            listPedidos[indexArray].nombre.apellido = DatoNuevo;
+        }
+        //si coloca telefono o 3
+        if(updatePedido == 'telefono' || updatePedido == 'Telefono' || updatePedido == '3'){
+            //DatoNuevo guardara el valor que coloque el usuario
+            let DatoNuevo=prompt("Cual es tu TELEFONO nuevo?","");
+            //NOTA: el arreglo contiene Objetos y obtendremos el indice del objeto al que hemos seleccionado
+            //al indice de ese areglo en el elemento de telefono se le colocara el dato que coloco el usuario
+            listPedidos[indexArray].nombre.telefono = DatoNuevo;
+        }
+        //si coloca email o 4
+        if(updatePedido == 'email' || updatePedido == 'Email' || updatePedido == '4'){
+            //DatoNuevo guardara el valor que coloque el usuario
+            let DatoNuevo=prompt("Cual es tu EMAIL nuevo?","");
+            //NOTA: el arreglo contiene Objetos y obtendremos el indice del objeto al que hemos seleccionado
+            //al indice de ese areglo en el elemento de email se le colocara el dato que coloco el usuario
+            listPedidos[indexArray].nombre.email = DatoNuevo;
+        }
+        //si coloca estado o 5
+        if(updatePedido == 'estado' || updatePedido == 'Estado' || updatePedido == '5'){
+            //DatoNuevo guardara el valor que coloque el usuario
+            let DatoNuevo=prompt("Cual es tu ESTADO nuevo?","");
+            //NOTA: el arreglo contiene Objetos y obtendremos el indice del objeto al que hemos seleccionado
+            //al indice de ese areglo en el elemento de estado se le colocara el dato que coloco el usuario
+            listPedidos[indexArray].nombre.estado = DatoNuevo;
+        }
+        //si coloca municipio o 6
+        if(updatePedido == 'municipio' || updatePedido == 'Municipio' || updatePedido == '6'){
+            //DatoNuevo guardara el valor que coloque el usuario
+            let DatoNuevo=prompt("Cual es tu MUNICIPIO nuevo?","");
+            //NOTA: el arreglo contiene Objetos y obtendremos el indice del objeto al que hemos seleccionado
+            //al indice de ese areglo en el elemento de municipio se le colocara el dato que coloco el usuario
+            listPedidos[indexArray].nombre.municipio = DatoNuevo;
+        }
+        //si coloca direccion o 7
+        if(updatePedido == 'direccion' || updatePedido == 'Direccion' || updatePedido == '7'){
+            //DatoNuevo guardara el valor que coloque el usuario
+            let DatoNuevo=prompt("Cual es tu DIRECCION nuevo?","");
+            //NOTA: el arreglo contiene Objetos y obtendremos el indice del objeto al que hemos seleccionado
+            //al indice de ese areglo en el elemento de direccion se le colocara el dato que coloco el usuario
+            listPedidos[indexArray].nombre.direccion = DatoNuevo;
+        }
+        //si coloca producto o 8
+        if(updatePedido == 'producto' || updatePedido == 'Producto' || updatePedido == '8'){
+            //DatoNuevo guardara el valor que coloque el usuario
+            let DatoNuevo=prompt("Cual es tu PRODUCTO nuevo?","");
+            //NOTA: el arreglo contiene Objetos y obtendremos el indice del objeto al que hemos seleccionado
+            //al indice de ese areglo en el elemento de producto se le colocara el dato que coloco el usuario
+            listPedidos[indexArray].nombre.producto = DatoNuevo;
+        }
+        //si coloca categoria o 9
+        if(updatePedido == 'categoria' || updatePedido == 'Categoria' || updatePedido == '9'){
+            //DatoNuevo guardara el valor que coloque el usuario
+            let DatoNuevo=prompt("Cual es tu CATEGORIA nuevo?","");
+            //NOTA: el arreglo contiene Objetos y obtendremos el indice del objeto al que hemos seleccionado
+            //al indice de ese areglo en el elemento de categoria se le colocara el dato que coloco el usuario
+            listPedidos[indexArray].nombre.categoria = DatoNuevo;
+        }
+        //si coloca total o 10
+        if(updatePedido == 'total' || updatePedido == 'Total' || updatePedido == '10'){
+            //DatoNuevo guardara el valor que coloque el usuario
+            let DatoNuevo=prompt("Cual es tu TOTAL nuevo?","$");
+            //NOTA: el arreglo contiene Objetos y obtendremos el indice del objeto al que hemos seleccionado
+            //al indice de ese areglo en el elemento de total se le colocara el dato que coloco el usuario
+            listPedidos[indexArray].nombre.total = DatoNuevo;
+        }
+        //si coloca descripcion o 11
+        if(updatePedido == 'descripcion' || updatePedido == 'Descripcion' || updatePedido == '11'){
+            //DatoNuevo guardara el valor que coloque el usuario
+            let DatoNuevo=prompt("Cual es tu DESCRIPCION nuevo?","");
+            //NOTA: el arreglo contiene Objetos y obtendremos el indice del objeto al que hemos seleccionado
+            //al indice de ese areglo en el elemento de descripcion se le colocara el dato que coloco el usuario
+            listPedidos[indexArray].nombre.descripcion = DatoNuevo;
+        }
+    }
+    //mandamos a llamar el siguiente metodo para guardar en el localStorage
+    localStoragePedidos();
+    
+}
 //metodo para poder insertar los datos en la tabla
 /*function insertNewRecord(data){
     let table = document.getElementById("lista-pedidos").getElementsByTagName('tbody')[0];
@@ -163,7 +269,7 @@ function resetForm(){
     document.getElementById("p-des").value="";
 }
 
-function editar(td){
+/*function editar(td){
     selecRow = td.parentElement.parentElement;
     document.getElementById("c-nom").value=selecRow.cells[0].innerHTML;
     document.getElementById("c-ape").value=selecRow.cells[1].innerHTML;
@@ -190,15 +296,15 @@ function actualizar(formData){
     selecRow.cells[8].innerHTML = formData.categoria;
     selecRow.cells[9].innerHTML = formData.total;
     selecRow.cells[10].innerHTML = formData.descripcion;
-}
+}*/
 
-function eliminar(td){
+/*function eliminar(td){
     if(confirm("¿Estas seguro de querer eliminar el pedido?")){
         row = td.parentElement.parentElement;
         document.getElementsById("lista-pedidos").deleteRow(row.rowIndex);
         resetForm();
     }
-}
+}*/
 
 //este nos sirve para que cada que se refresque la pagina siempre se haga primero el metodo "ColocardatoEnTabla"
 document.addEventListener('DOMContentLoaded',ColocardatoEnTabla);
@@ -219,6 +325,7 @@ listapedidosUI.addEventListener('click', (e) =>{
         }
         //accion de editar
         if(e.target.innerHTML === 'editar'){
+            EditarLocalStorage(text);
         }
 
     }
