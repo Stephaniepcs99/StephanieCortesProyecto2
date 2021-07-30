@@ -1,14 +1,15 @@
 let selecRow=null;
+let listPedidos=[];
 const formUI = document.querySelector('#formulario');
 const listapedidosUI = document.querySelector('#listped');
+
+//let button = document.querySelector('.button').value;
 
 //al dar click en el boton de guardar se realizara lo siguiente
 function onFormSubmit(){
     let formData = LeerDator();
-    if(selecRow==null){
-    insertNewRecord(formData);
-    }else{
-        actualizar(formData)
+    if(selecRow == null){
+        localStoragePedidos();
     }
     resetForm();
 }
@@ -27,11 +28,79 @@ function LeerDator(){
     formData["categoria"]=document.getElementById("p-cat").value;
     formData["total"]=document.getElementById("p-pago").value;
     formData["descripcion"]=document.getElementById("p-des").value;
+   // listPedidos.push(formData);
+   // localStoragePedidos(listPedidos);
+   agregarpedido(formData);
     return formData;
 }
 
+
+function agregarpedido(nombre,apellido,telefono,email,estado,municipio,direccion,producto,categoria,total,descripcion){
+    //Objeto 
+    let pedido= {
+        nombre:nombre,
+        apellido:apellido,
+        telefono:telefono,
+        email:email,
+        estado:estado,
+        municipio:municipio,
+        direccion:direccion,
+        producto:producto,
+        categoria:categoria,
+        total:total,
+        descripcion:descripcion
+    };
+    //vamos agregando pedidos a la lista
+    listPedidos.push(pedido);
+    //al metodo se le manda como parametro lo que hay en el arreglo de los pedidos
+    localStoragePedidos(listPedidos);
+    return pedido;
+}
+
+//Los datos que se encuentren en el LocalStorage los mostrara en la tabla
+const ColocardatoEnTabla=()=>{
+    //vaciara lo que tenga la tabla
+    listapedidosUI.innerHTML= '' ;
+    //el arreglo sera igual al objeto convertido en String
+    listPedidos= JSON.parse(localStorage.getItem('Pedido'));
+    //console.log(listPedidos);
+    //si el arreglo no tiene nada
+    if(listPedidos ===null){
+        //el arreglo sera vacio
+        listPedidos=[];
+    }else{
+        //recorremos cada elemento del arreglo para colocarlo en la tabla
+        listPedidos.forEach(element =>{
+            listapedidosUI.innerHTML += ` 
+            <tr>
+            <td>${element.nombre.nombre}</td>
+            <td>${element.nombre.apellido}</td>
+            <td>${element.nombre.telefono}</td>
+            <td>${element.nombre.email}</td>
+            <td>${element.nombre.estado}</td>
+            <td>${element.nombre.municipio}</td>
+            <td>${element.nombre.direccion}</td>
+            <td>${element.nombre.producto}</td>
+            <td>${element.nombre.categoria}</td>
+            <td>${element.nombre.total}</td>
+            <td>${element.nombre.descripcion}</td>
+            <td><a><i class="far fa-edit">editar</i></a> 
+            <a><i class="fas fa-trash-alt">elim</i></a></td>
+          </tr>`
+        });
+    }
+}
+
+//Guarda en el Local Storage
+function localStoragePedidos(){
+    //guardara el objeto del pedido en stiing
+    localStorage.setItem("Pedido",JSON.stringify(listPedidos));
+    //al ser guardado tambien manda a llamar el metodo sig para que coloque los datos en la tabla
+    ColocardatoEnTabla();
+}
+
 //metodo para poder insertar los datos en la tabla
-function insertNewRecord(data){
+/*function insertNewRecord(data){
     let table = document.getElementById("lista-pedidos").getElementsByTagName('tbody')[0];
     let newRow = table.insertRow(table.length);
     celd1=newRow.insertCell(0);
@@ -57,9 +126,9 @@ function insertNewRecord(data){
     celd11=newRow.insertCell(10);
     celd11.innerHTML=data.descripcion;
     celd12=newRow.insertCell(11);
-    celd12.innerHTML=`<a onClick="editar(this)"><i class="far fa-edit">editar</i></a> 
-                      <a onClick="eliminar(this)"><i class="fas fa-trash-alt">elim</i></a>`;
-}
+    celd12.innerHTML=`<a><i class="far fa-edit">editar</i></a> 
+                      <a><i class="fas fa-trash-alt">elim</i></a>`;
+}*/
 
 //pone en blanco cada uno de los inputs del formulario
 function resetForm(){
@@ -112,3 +181,6 @@ function eliminar(td){
         resetForm();
     }
 }
+
+//este nos sirve para que cada que se refresque la pagina siempre se haga primero el metodo "ColocardatoEnTabla"
+document.addEventListener('DOMContentLoaded',ColocardatoEnTabla);
