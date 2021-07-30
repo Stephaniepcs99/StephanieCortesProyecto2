@@ -150,3 +150,17 @@ background: linear-gradient(357deg, rgba(130,130,130,1) 0%, rgba(238,224,237,1) 
 .button{
     width: 70%;
 }
+.table{
+    background: rgb(130,130,130);
+background: linear-gradient(357deg, rgba(130,130,130,1) 0%, rgba(218,185,214,1) 73%);
+}
+
+.cont-registro{
+    width: 62%;
+    background-image: url('./images/fondo1.jpg');
+    overflow: scroll;
+}
+#nota{
+    color: rgb(141, 6, 6);
+    background-color: white;
+}
